@@ -1,0 +1,37 @@
+---
+import './CosmosHero.scss';
+
+interface Props {
+  /** Title lines; each renders on its own line. */
+  titleLines: string[];
+  lead: string;
+}
+
+const { titleLines, lead } = Astro.props;
+---
+
+<section class="cosmos-hero" data-hero data-cosmos-stop aria-labelledby="cosmos-hero-title">
+  <div class="cosmos-hero__content wrapper">
+    <h1 class="cosmos-hero__title" id="cosmos-hero-title" data-hero-intro data-hero-title>
+      {titleLines.map((line) => (
+        <span class="cosmos-hero__line">{line}</span>
+      ))}
+    </h1>
+    <p class="cosmos-hero__lead" data-hero-intro>
+      {lead}
+    </p>
+    {Astro.slots.has('default') && (
+      <div class="cosmos-hero__actions" data-hero-intro>
+        <slot />
+      </div>
+    )}
+  </div>
+</section>
+
+<script>
+  import { initHeroIntro } from '@/animations/hero-intro';
+
+  for (const hero of document.querySelectorAll<HTMLElement>('[data-hero]')) {
+    void initHeroIntro(hero);
+  }
+</script>

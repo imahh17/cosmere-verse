@@ -1,0 +1,26 @@
+// Sass helpers for component styles. Components import this file only — it
+// emits no CSS, just dawuti mixins, functions and breakpoint constants.
+//
+//   @use 'mixins' as *;
+//   .block { @include mq($bp-desktop) { … } }
+@forward 'dawuti';
+
+// Desktop breakpoint (dawuti's `md`). Replace with the design system value
+// once `.claude/design` exists.
+$bp-desktop: 992px;
+
+// Wide desktops get the fixed journey index on the right edge.
+$bp-wide: 1200px;
+
+// World ids, in journey order. Keep in sync with `WorldId` in src/data/worlds.ts.
+$world-ids: scadrial, sel, nalthis, roshar, taldain, lumar, komashi, canticle;
+
+// Emits `&--<id> { --world-accent: var(--planet-<id>-accent) }` per world, so a
+// BEM modifier sets the colour world of any block.
+@mixin world-accent-modifiers {
+  @each $world in $world-ids {
+    &--#{$world} {
+      --world-accent: var(--planet-#{$world}-accent);
+    }
+  }
+}

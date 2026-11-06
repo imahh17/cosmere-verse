@@ -1,0 +1,32 @@
+@use 'mixins' as *;
+
+// Table-of-contents rows: title, a hairline leader in the world's colour, and
+// the original publication year in tabular figures.
+.book-list {
+  display: grid;
+  gap: var(--s2);
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s3);
+  }
+
+  &__title {
+    font-style: normal;
+  }
+
+  &__leader {
+    flex: 1;
+    min-width: var(--s6);
+    border-bottom: var(--rule-width) solid var(--world-accent, var(--color-rule));
+    opacity: 0.45;
+  }
+
+  &__year {
+    color: var(--world-accent, var(--color-text-muted));
+    font-variant-numeric: tabular-nums;
+  }
+}

@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T00:00:00Z",
+  "title": "Design System: Cosmere Verse",
+  "extensions": {
+    "colorMeta": {
+      "space": {
+        "role": "neutral",
+        "displayName": "Void Blue-Black",
+        "canonical": "#04060c",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(26% 0.007 265)",
+          "oklch(38% 0.010 265)",
+          "oklch(49% 0.013 265)",
+          "oklch(61% 0.016 265)",
+          "oklch(72% 0.013 265)",
+          "oklch(84% 0.010 265)",
+          "oklch(95% 0.007 265)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Starlight",
+        "canonical": "#eef2f8",
+        "tonalRamp": [
+          "oklch(15% 0.009 258)",
+          "oklch(26% 0.009 258)",
+          "oklch(38% 0.009 258)",
+          "oklch(49% 0.009 258)",
+          "oklch(61% 0.009 258)",
+          "oklch(72% 0.009 258)",
+          "oklch(84% 0.009 258)",
+          "oklch(95% 0.009 258)"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Nebula Grey-Blue",
+        "canonical": "#a9b6cc",
+        "tonalRamp": [
+          "oklch(15% 0.009 261)",
+          "oklch(26% 0.015 261)",
+          "oklch(38% 0.022 261)",
+          "oklch(49% 0.028 261)",
+          "oklch(61% 0.034 261)",
+          "oklch(72% 0.028 261)",
+          "oklch(84% 0.021 261)",
+          "oklch(95% 0.014 261)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Haze",
+        "canonical": "rgb(169 182 204 / 0.3)"
+      },
+      "star": {
+        "role": "primary",
+        "displayName": "Star Gold",
+        "canonical": "#f3c46b",
+        "tonalRamp": [
+          "oklch(15% 0.030 82)",
+          "oklch(26% 0.053 82)",
+          "oklch(38% 0.076 82)",
+          "oklch(49% 0.099 82)",
+          "oklch(61% 0.119 82)",
+          "oklch(72% 0.096 82)",
+          "oklch(84% 0.073 82)",
+          "oklch(95% 0.050 82)"
+        ]
+      },
+      "selection": {
+        "role": "primary",
+        "displayName": "Star Gold Selection",
+        "canonical": "rgb(243 196 107 / 0.35)"
+      },
+      "scadrial-accent": {
+        "role": "secondary",
+        "displayName": "Ember Coral",
+        "canonical": "#f0906a",
+        "tonalRamp": [
+          "#120f0e",
+          "#5c5550",
+          "#e0573a",
+          "#f0906a",
+          "#b3a89e"
+        ],
+        "shaderStops": {
+          "deep": "#120f0e",
+          "mid": "#5c5550",
+          "atmo": "#e0573a",
+          "accent": "#f0906a",
+          "light": "#b3a89e",
+          "cloud": "#857d76"
+        }
+      },
+      "sel-accent": {
+        "role": "secondary",
+        "displayName": "Glacier Cyan",
+        "canonical": "#7fdcf2",
+        "tonalRamp": [
+          "#061520",
+          "#1c4f66",
+          "#57d2f2",
+          "#7fdcf2",
+          "#9fd6e8"
+        ],
+        "shaderStops": {
+          "deep": "#061520",
+          "mid": "#1c4f66",
+          "atmo": "#57d2f2",
+          "accent": "#7fdcf2",
+          "light": "#9fd6e8",
+          "cloud": "#5d8ea0"
+        }
+      },
+      "nalthis-accent": {
+        "role": "secondary",
+        "displayName": "Breath Pink",
+        "canonical": "#ff8fbb",
+        "tonalRamp": [
+          "#2a0b3a",
+          "#c2185b",
+          "#ff6fa8",
+          "#ff8fbb",
+          "#ffc94a"
+        ],
+        "shaderStops": {
+          "deep": "#2a0b3a",
+          "mid": "#c2185b",
+          "atmo": "#ff6fa8",
+          "accent": "#ff8fbb",
+          "light": "#ffc94a",
+          "cloud": "#ffe08a"
+        }
+      },
+      "roshar-accent": {
+        "role": "secondary",
+        "displayName": "Highstorm Periwinkle",
+        "canonical": "#a8c0ff",
+        "tonalRamp": [
+          "#0b1326",
+          "#45567f",
+          "#8fb0ff",
+          "#a8c0ff",
+          "#e8ecf6"
+        ],
+        "shaderStops": {
+          "deep": "#0b1326",
+          "mid": "#45567f",
+          "atmo": "#8fb0ff",
+          "accent": "#a8c0ff",
+          "light": "#e8ecf6",
+          "cloud": "#eef3f8"
+        }
+      },
+      "taldain-accent": {
+        "role": "secondary",
+        "displayName": "Dayside Amber",
+        "canonical": "#f4c66f",
+        "tonalRamp": [
+          "#1f1306",
+          "#b97c33",
+          "#ffc76e",
+          "#f4c66f",
+          "#f6dfa6"
+        ],
+        "shaderStops": {
+          "deep": "#1f1306",
+          "mid": "#b97c33",
+          "atmo": "#ffc76e",
+          "accent": "#f4c66f",
+          "light": "#f6dfa6",
+          "cloud": "#f6dfa6"
+        }
+      },
+      "lumar-accent": {
+        "role": "secondary",
+        "displayName": "Spore Green",
+        "canonical": "#72e8ab",
+        "tonalRamp": [
+          "#03201a",
+          "#1d8558",
+          "#4fe096",
+          "#72e8ab",
+          "#b6f4c8"
+        ],
+        "shaderStops": {
+          "deep": "#03201a",
+          "mid": "#1d8558",
+          "atmo": "#4fe096",
+          "accent": "#72e8ab",
+          "light": "#b6f4c8",
+          "cloud": "#b6f4c8"
+        }
+      },
+      "komashi-accent": {
+        "role": "secondary",
+        "displayName": "Violet Dusk",
+        "canonical": "#c4a8ff",
+        "tonalRamp": [
+          "#140b22",
+          "#573c9c",
+          "#a987ff",
+          "#c4a8ff",
+          "#e4d1ff"
+        ],
+        "shaderStops": {
+          "deep": "#140b22",
+          "mid": "#573c9c",
+          "atmo": "#a987ff",
+          "accent": "#c4a8ff",
+          "light": "#e4d1ff",
+          "cloud": "#d9c6ff"
+        }
+      },
+      "canticle-accent": {
+        "role": "secondary",
+        "displayName": "Furnace Orange",
+        "canonical": "#ff9f5c",
+        "tonalRamp": [
+          "#260500",
+          "#c93c0d",
+          "#ff8436",
+          "#ff9f5c",
+          "#ffd27a"
+        ],
+        "shaderStops": {
+          "deep": "#260500",
+          "mid": "#c93c0d",
+          "atmo": "#ff8436",
+          "accent": "#ff9f5c",
+          "light": "#ffd27a",
+          "cloud": "#ffd27a"
+        }
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline, planet names, reading-route title. Uppercase."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Wordmark, saga titles, route step numbers, footer brand. Uppercase."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "World names in the journey index and route tags. Uppercase, tracked; never a kicker."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Leads and planet premises (400); route book titles (700)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default reading text; tabular figures on."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Header links on phones, footer disclaimer."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "duration-fast",
+        "value": "200ms",
+        "purpose": "Hover colour and underline changes."
+      },
+      {
+        "name": "duration-base",
+        "value": "450ms",
+        "purpose": "Arrow travel, journey-index fade, hero overlap."
+      },
+      {
+        "name": "duration-slow",
+        "value": "900ms",
+        "purpose": "Hero intro, scroll reveals, canvas fade-in."
+      },
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single easing for CSS transitions and GSAP timelines."
+      },
+      {
+        "name": "stagger-sm",
+        "value": "40ms",
+        "purpose": "Hero title character stagger."
+      },
+      {
+        "name": "stagger-md",
+        "value": "90ms",
+        "purpose": "Block stagger for hero copy and reveal batches."
+      },
+      {
+        "name": "reveal-distance",
+        "value": "2.5rem",
+        "purpose": "Rise distance of entering content."
+      },
+      {
+        "name": "camera-damping",
+        "value": "3.2",
+        "purpose": "Exponential damping per second of the scroll-following camera."
+      },
+      {
+        "name": "planet-spin",
+        "value": "0.035",
+        "purpose": "Planet rotation in radians per second."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desktop",
+        "value": "992px"
+      },
+      {
+        "name": "wide",
+        "value": "1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action Link",
+      "kind": "button",
+      "refersTo": "action-link-primary",
+      "description": "Starlight pill for the main forward action; optional descend arrow.",
+      "html": "<a class=\"ds-action ds-action--primary\" href=\"#\"><span>Empieza el viaje</span><svg class=\"ds-action__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M8 2v11M3.5 8.5 8 13l4.5-4.5\"/></svg></a>",
+      "css": ".ds-action { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 3rem; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; font-size: 1.0625rem; font-weight: 700; text-decoration: none; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1), text-decoration-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-action--primary { padding-inline: 1.5rem; border-radius: 999rem; background-color: #eef2f8; color: #04060c; } .ds-action--primary:hover { background-color: #f3c46b; } .ds-action:focus-visible { outline: 0.125rem solid #f3c46b; outline-offset: 0.25rem; } .ds-action__icon { width: 1rem; height: 1rem; fill: none; stroke: currentcolor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-action:hover .ds-action__icon { transform: translateY(0.1875rem); }"
+    },
+    {
+      "name": "Quiet Action Link",
+      "kind": "button",
+      "refersTo": "action-link-quiet",
+      "description": "Underlined companion to the primary action.",
+      "html": "<a class=\"ds-action-quiet\" href=\"#\">Ver la ruta de lectura</a>",
+      "css": ".ds-action-quiet { display: inline-flex; align-items: center; min-height: 3rem; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; font-size: 1.0625rem; font-weight: 700; color: #eef2f8; text-decoration-line: underline; text-decoration-thickness: 0.0625rem; text-decoration-color: rgb(169 182 204 / 0.3); text-underline-offset: 0.35em; transition: text-decoration-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-action-quiet:hover { text-decoration-color: #f3c46b; } .ds-action-quiet:focus-visible { outline: 0.125rem solid #f3c46b; outline-offset: 0.25rem; }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "header-link",
+      "description": "Condensed wordmark and two text links over the hero.",
+      "html": "<nav class=\"ds-header\"><a class=\"ds-header__brand\" href=\"#\">Cosmere Verse</a><ul class=\"ds-header__links\"><li><a class=\"ds-header__link\" href=\"#\">Mundos</a></li><li><a class=\"ds-header__link\" href=\"#\">Ruta de lectura</a></li></ul></nav>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem; background: #04060c; color: #eef2f8; } .ds-header__brand { font-family: 'Big Shoulders Display Variable', 'Arial Narrow', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; text-decoration: none; color: inherit; } .ds-header__links { display: flex; gap: 1.5rem; margin: 0; padding: 0; list-style: none; } .ds-header__link { display: inline-block; padding-block: 0.75rem; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; font-size: 1.0625rem; color: inherit; text-decoration-line: underline; text-decoration-thickness: 0.0625rem; text-decoration-color: transparent; text-underline-offset: 0.35em; transition: text-decoration-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-header__link:hover { text-decoration-color: #f3c46b; } .ds-header__link:focus-visible { outline: 0.125rem solid #f3c46b; outline-offset: 0.25rem; }"
+    },
+    {
+      "name": "Journey Index",
+      "kind": "nav",
+      "refersTo": "journey-index-link",
+      "description": "Right-edge list of worlds; the current one lights in its own accent.",
+      "html": "<ul class=\"ds-index\"><li><a class=\"ds-index__link\" href=\"#\">Sel</a></li><li><a class=\"ds-index__link\" href=\"#\" aria-current=\"location\" style=\"--world-accent: #ff8fbb\">Nalthis</a></li><li><a class=\"ds-index__link\" href=\"#\">Roshar</a></li></ul>",
+      "css": ".ds-index { display: grid; gap: 0.5rem; margin: 0; padding: 1rem; list-style: none; text-align: end; background: #04060c; } .ds-index__link { display: inline-block; padding-block: 0.25rem; font-family: 'Big Shoulders Display Variable', 'Arial Narrow', sans-serif; font-size: 0.9375rem; font-weight: 700; line-height: 1.2; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: #a9b6cc; transition: color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-index__link:hover { color: #eef2f8; } .ds-index__link[aria-current] { color: var(--world-accent, #f3c46b); } .ds-index__link:focus-visible { outline: 0.125rem solid #f3c46b; outline-offset: 0.25rem; }"
+    },
+    {
+      "name": "World Stop",
+      "kind": "custom",
+      "refersTo": "world-stop-name",
+      "description": "One planet's words: accent name, saga, premise, books, first book.",
+      "html": "<section class=\"ds-world\"><h2 class=\"ds-world__name\">Nalthis</h2><p class=\"ds-world__saga\">El aliento de los dioses</p><p class=\"ds-world__premise\">Cada persona nace con un Aliento.</p><ul class=\"ds-books\"><li class=\"ds-books__item\"><cite class=\"ds-books__title\">El aliento de los dioses</cite><span class=\"ds-books__leader\" aria-hidden=\"true\"></span><span class=\"ds-books__year\">2009</span></li></ul><p class=\"ds-world__start\">Empieza por <cite class=\"ds-world__start-title\">El aliento de los dioses</cite></p></section>",
+      "css": ".ds-world { --world-accent: #ff8fbb; display: grid; gap: 1rem; max-width: 34rem; padding: 2rem; background: #04060c; color: #eef2f8; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; font-variant-numeric: tabular-nums; } .ds-world__name, .ds-world__saga { margin: 0; font-family: 'Big Shoulders Display Variable', 'Arial Narrow', sans-serif; text-transform: uppercase; } .ds-world__name { font-size: clamp(3.5rem, 9vw, 6rem); font-weight: 800; line-height: 0.9; letter-spacing: -0.01em; color: var(--world-accent); } .ds-world__saga { font-size: clamp(1.75rem, 3.2vw, 2.5rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; } .ds-world__premise { margin: 0; font-size: 1.3125rem; line-height: 1.5; } .ds-books { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; } .ds-books__item { display: flex; align-items: baseline; gap: 0.75rem; } .ds-books__title { font-style: normal; } .ds-books__leader { flex: 1; min-width: 1.5rem; border-bottom: 0.0625rem solid var(--world-accent); opacity: 0.45; } .ds-books__year { color: var(--world-accent); } .ds-world__start { margin: 0; color: #a9b6cc; } .ds-world__start-title { font-style: normal; font-weight: 700; color: var(--world-accent); }"
+    },
+    {
+      "name": "Reading Route Step",
+      "kind": "custom",
+      "refersTo": "route-step-number",
+      "description": "Numbered step with a hairline connector in its world's accent.",
+      "html": "<ol class=\"ds-route\"><li class=\"ds-route__step\"><h3 class=\"ds-route__book\"><a class=\"ds-route__link\" href=\"#\">El imperio final</a></h3><p class=\"ds-route__worlds\">Scadrial</p><p class=\"ds-route__reason\">Una trilogía cerrada con la magia más fácil de entender.</p></li></ol>",
+      "css": ".ds-route { counter-reset: route; margin: 0; padding: 2rem; list-style: none; background: #04060c; color: #eef2f8; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; } .ds-route__step { --world-accent: #f0906a; --route-rule: color-mix(in srgb, var(--world-accent) 45%, transparent); display: grid; gap: 0.5rem; max-width: 18rem; counter-increment: route; } .ds-route__step::before { content: counter(route); margin-bottom: 0.75rem; font-family: 'Big Shoulders Display Variable', 'Arial Narrow', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1; color: var(--world-accent); background-image: linear-gradient(var(--route-rule), var(--route-rule)); background-position: right center; background-repeat: no-repeat; background-size: calc(100% - 2.5ch) 0.0625rem; } .ds-route__book { margin: 0; font-size: 1.3125rem; font-weight: 700; line-height: 1.5; } .ds-route__link { color: inherit; text-decoration-line: underline; text-decoration-thickness: 0.0625rem; text-decoration-color: rgb(169 182 204 / 0.3); text-underline-offset: 0.3em; transition: text-decoration-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-route__link:hover { text-decoration-color: var(--world-accent); } .ds-route__link:focus-visible { outline: 0.125rem solid #f3c46b; outline-offset: 0.25rem; } .ds-route__worlds { margin: 0; font-family: 'Big Shoulders Display Variable', 'Arial Narrow', sans-serif; font-size: 0.9375rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--world-accent); } .ds-route__reason { margin: 0; color: #a9b6cc; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Damped Camera Flight",
+    "overview": "**Creative North Star: \"The Damped Camera Flight\"**\n\nCosmere Verse plays the category canon straight: blue-black space, a real-time WebGL starfield, procedurally shaded planets with atmospheric rims, and a camera that flies from world to world as the page scrolls. The planets are the navigation; the page travels to them rather than laying them out as a grid. Everything typographic is built to sit beside a lit sphere and stay legible over it.\n\nThe system is sparse and dark. One near-black ground, one cool starlight text colour, one warm star gold for interaction, and eight world accents, each applied only inside its own world. Type pairs a huge condensed uppercase display face for names with a hyperlegible sans for everything a person reads. Lines are hairlines; the only rounded shape is the primary action pill. There are no cards, no panels and no box-shadows: depth belongs to the scene.\n\nMotion is the signature. The camera follows scroll through exponential damping (never snapping), the hero copy rises in on a single long ease, and every animated state has a reduced-motion path in which the camera jumps between stops and nothing travels.",
+    "keyCharacteristics": [
+      "Near-black space ground with a full-viewport WebGL backdrop behind all content.",
+      "One colour world per planet, set by a BEM modifier and shared with the planet shader.",
+      "Condensed uppercase display names against hyperlegible sentence-case reading text.",
+      "Hairline rules and leaders instead of containers.",
+      "Scroll-scrubbed, damped camera flight; reduced motion always honoured."
+    ],
+    "rules": [
+      {
+        "name": "The One Colour World Rule",
+        "body": "A section takes exactly one world accent, through `--world-accent` set by the `world-accent-modifiers` mixin on its block. The accent colours names, numbers, years and rules; it never colours a reading paragraph. Body copy inside a world stays Starlight or Nebula.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted Grey Rule",
+        "body": "Secondary text is tinted from the space ground (Nebula Grey-Blue), never a neutral grey.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Star Rule",
+        "body": "Star Gold is the only colour that means \"you can act here\" outside a world. Within a world, a link's hover may take that world's accent instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensed Shout Rule",
+        "body": "The display face is only ever uppercase and only ever names things: planets, sagas, sections, the brand, worlds in lists. Anything read as a sentence is set in Atkinson, sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Year Rule",
+        "body": "Years and numbers use tabular figures so book leaders align across a world's list.",
+        "section": "typography"
+      },
+      {
+        "name": "The Balanced Head Rule",
+        "body": "Headings use `text-wrap: balance`; paragraphs and list items use `text-wrap: pretty`.",
+        "section": "typography"
+      },
+      {
+        "name": "The Planet Owns Half Rule",
+        "body": "Copy never spans the full width of a stop. The measure (34rem) keeps a planet's half of the viewport clear.",
+        "section": "layout"
+      },
+      {
+        "name": "The One Sun Rule",
+        "body": "Every planet is lit from the same direction. A new world reuses the shared sun and terminator so the system reads as one universe.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Flat Interface Rule",
+        "body": "Interface elements carry no shadow or glow; glow belongs to atmospheres in the scene.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "A line is always one hairline wide and either Hairline Haze or the world accent at 45%. Thicker strokes appear only in the 2px focus outline and the 1.75 stroke of the descend arrow.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** set a section's colour world with the `world-accent-modifiers` mixin and read it through `--world-accent`, falling back to Star Gold.",
+      "**Do** add a new world as a full set of `--planet-<id>-deep|mid|light|atmo|accent|cloud` tokens and add its id to `$world-ids`, so the shader and the type share one source.",
+      "**Do** keep reading copy within the 34rem measure and on the opposite side from the planet.",
+      "**Do** put a space-colour scrim behind copy wherever it scrolls over a planet.",
+      "**Do** read every duration, ease and distance from the motion tokens and give each animation a reduced-motion path through `gsap.matchMedia()`.",
+      "**Do** draw icons as inline SVG strokes in `currentcolor`."
+    ],
+    "donts": [
+      "**Don't** present worlds as a row or grid of planet cards; the planets are reached by travelling to them.",
+      "**Don't** colour reading paragraphs with a world accent, or use one world's accent inside another world's section.",
+      "**Don't** use neutral grey for secondary text; use Nebula Grey-Blue.",
+      "**Don't** add box-shadows, glows or blurred panels to interface elements.",
+      "**Don't** set sentences in the display face or in uppercase.",
+      "**Don't** use official cover art, logos, maps or illustrations from Dragonsteel or the publishers (PRODUCT.md constraint, marked there as inferred and pending confirmation)."
+    ]
+  }
+}

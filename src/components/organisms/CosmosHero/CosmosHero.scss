@@ -1,0 +1,46 @@
+@use 'mixins' as *;
+
+// First viewport: copy top-left, the first planet fills the lower right
+// (drawn by the WebGL scene behind). On narrow screens the planet sits below.
+.cosmos-hero {
+  display: grid;
+  min-height: 100svh;
+
+  &__content {
+    display: grid;
+    align-content: start;
+    gap: var(--s6);
+    padding-block: calc(var(--s10) * 3) var(--section-gap);
+  }
+
+  &__title {
+    @include f('sec-display', var(--fw-black), true);
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  &__line {
+    display: block;
+  }
+
+  &__lead {
+    @include f('lg', var(--fw-regular), true);
+    max-width: var(--measure);
+    color: var(--color-text-muted);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s4) var(--s6);
+    margin-top: var(--s2);
+  }
+
+  @include mq($bp-desktop) {
+    &__content {
+      align-content: center;
+      padding-block: var(--section-gap);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use 'mixins' as *;
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  border-top: var(--rule-width) solid var(--color-rule);
+  background-color: var(--color-space);
+
+  &__inner {
+    display: grid;
+    gap: var(--s3);
+    padding-block: var(--s10);
+  }
+
+  &__brand {
+    @include f('sec-lg', var(--fw-black), true);
+    text-transform: uppercase;
+  }
+
+  &__disclaimer {
+    @include f('xs', var(--fw-regular), true);
+    max-width: var(--measure);
+    color: var(--color-text-muted);
+  }
+
+  @include mq($bp-desktop) {
+    &__inner {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+  }
+}

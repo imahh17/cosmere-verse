@@ -1,0 +1,118 @@
+@use 'mixins' as *;
+
+// The closing stop: the camera pulls back over the whole line of worlds and
+// the route reads as one path. The step numbers carry the reading order.
+.reading-route {
+  display: grid;
+  min-height: 100svh;
+
+  // On narrow screens the long route scrolls over the line-up of worlds: a
+  // scrim that starts just above the title keeps it legible.
+  &__inner {
+    display: grid;
+    align-content: end;
+    gap: var(--s6);
+    padding-block: 40svh var(--section-gap);
+    background-image: linear-gradient(
+      to bottom,
+      transparent calc(40svh - var(--s10)),
+      color-mix(in srgb, var(--color-space) 90%, transparent) 40svh
+    );
+  }
+
+  &__title {
+    @include f('sec-display', var(--fw-black), true);
+    text-transform: uppercase;
+  }
+
+  &__lead {
+    @include f('lg', var(--fw-regular), true);
+    max-width: var(--measure);
+    color: var(--color-text-muted);
+  }
+
+  &__steps {
+    display: grid;
+    gap: var(--s10);
+    margin-top: var(--s8);
+    padding: 0;
+    list-style: none;
+    counter-reset: route;
+  }
+
+  // Number and a hairline that runs to the next stop: the route itself. Each
+  // step takes its world's colour; its planet stands above it in the scene.
+  &__step {
+    --world-accent: var(--color-star);
+
+    @include world-accent-modifiers;
+
+    display: grid;
+    align-content: start;
+    gap: var(--s2);
+    counter-increment: route;
+
+    &::before {
+      @include f('sec-lg', var(--fw-black), true);
+      content: counter(route);
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+      margin-bottom: var(--s3);
+      color: var(--world-accent);
+    }
+  }
+
+  &__book {
+    @include f('lg', var(--fw-bold), true);
+  }
+
+  &__link {
+    text-decoration-line: underline;
+    text-decoration-thickness: var(--rule-width);
+    text-decoration-color: var(--color-rule);
+    text-underline-offset: 0.3em;
+    transition: text-decoration-color var(--duration-fast) var(--ease-out);
+
+    @include hover {
+      text-decoration-color: var(--world-accent);
+    }
+  }
+
+  &__worlds {
+    @include f('sec-label', var(--fw-bold), true);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
+
+  // Each name takes its own world's colour (a step can join two worlds).
+  &__world {
+    @include world-accent-modifiers;
+
+    color: var(--world-accent);
+  }
+
+  &__reason {
+    color: var(--color-text-muted);
+  }
+
+  @include mq($bp-desktop) {
+    &__inner {
+      background-image: none;
+    }
+
+    &__steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--s8);
+    }
+
+    &__step:not(:last-child)::before {
+      --route-rule: color-mix(in srgb, var(--world-accent) 45%, transparent);
+
+      background-image: linear-gradient(var(--route-rule), var(--route-rule));
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: calc(100% - 2.5ch) var(--rule-width);
+    }
+  }
+}

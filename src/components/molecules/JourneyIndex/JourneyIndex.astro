@@ -1,0 +1,77 @@
+---
+import './JourneyIndex.scss';
+
+export interface JourneyLink {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  label: string;
+  links: JourneyLink[];
+}
+
+const { label, links } = Astro.props;
+---
+
+<nav class="journey-index" aria-label={label} data-journey-index>
+  <ol class="journey-index__list" data-journey-rail>
+    {links.map((link) => (
+      <li class="journey-index__item">
+        <a
+          class:list={['journey-index__link', `journey-index__link--${link.id}`]}
+          href={`#${link.id}`}
+          data-journey-link={link.id}
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script>
+  // Marks the link of the section that crosses the middle of the viewport.
+  for (const nav of document.querySelectorAll<HTMLElement>('[data-journey-index]')) {
+    const links = new Map<string, HTMLAnchorElement>();
+    for (const link of nav.querySelectorAll<HTMLAnchorElement>('[data-journey-link]')) {
+      const id = link.dataset.journeyLink;
+      if (id) links.set(id, link);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          for (const [id, link] of links) {
+            if (id === entry.target.id) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          }
+        }
+        nav.classList.toggle(
+          'is-visible',
+          [...links.values()].some((link) => link.hasAttribute('aria-current')),
+        );
+      },
+      { rootMargin: '-50% 0px -50% 0px' },
+    );
+
+    for (const id of links.keys()) {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    }
+
+    // The hero has no link: leaving every section clears the active mark.
+    const hero = document.querySelector('[data-hero]');
+    if (hero) {
+      new IntersectionObserver(
+        ([entry]) => {
+          if (!entry?.isIntersecting) return;
+          for (const link of links.values()) link.removeAttribute('aria-current');
+          nav.classList.remove('is-visible');
+        },
+        { rootMargin: '-50% 0px -50% 0px' },
+      ).observe(hero);
+    }
+  }
+</script>

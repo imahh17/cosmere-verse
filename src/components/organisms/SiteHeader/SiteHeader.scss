@@ -1,0 +1,55 @@
+@use 'mixins' as *;
+
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+
+  &__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s4);
+    padding-block: var(--s6);
+  }
+
+  &__brand {
+    @include f('sec-lg', var(--fw-black), true);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &__links {
+    display: flex;
+    gap: var(--s4);
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    @include f('xs', var(--fw-regular), true);
+    display: inline-block;
+    padding-block: var(--s3);
+    text-decoration-line: underline;
+    text-decoration-thickness: var(--rule-width);
+    text-decoration-color: transparent;
+    text-underline-offset: 0.35em;
+    transition: text-decoration-color var(--duration-fast) var(--ease-out);
+
+    @include hover {
+      text-decoration-color: var(--color-star);
+    }
+  }
+
+  // One row on phones; the full sizes return with room to spare.
+  @include mq($bp-desktop) {
+    &__links {
+      gap: var(--s6);
+    }
+
+    &__link {
+      @include f('base', var(--fw-regular), true);
+    }
+  }
+}

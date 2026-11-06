@@ -1,0 +1,52 @@
+---
+import { type RouteStep, worldName } from '@/data/worlds';
+import './ReadingRoute.scss';
+
+interface Props {
+  id: string;
+  title: string;
+  lead: string;
+  steps: RouteStep[];
+}
+
+const { id, title, lead, steps } = Astro.props;
+const titleId = `${id}-title`;
+---
+
+<section class="reading-route" id={id} data-cosmos-stop aria-labelledby={titleId}>
+  <div class="reading-route__inner wrapper">
+    <h2 class="reading-route__title" id={titleId}>
+      {title}
+    </h2>
+    <p class="reading-route__lead">{lead}</p>
+    <ol class="reading-route__steps">
+      {steps.map((step) => (
+        <li
+          class:list={[
+            'reading-route__step',
+            `reading-route__step--${step.worldIds[0] ?? 'route'}`,
+          ]}
+          data-route-worlds={step.worldIds.join(',')}
+          data-reveal
+        >
+          <h3 class="reading-route__book">
+            <a class="reading-route__link" href={step.href}>
+              {step.title}
+            </a>
+          </h3>
+          <p class="reading-route__worlds">
+            {step.worldIds.map((id, index) => (
+              <>
+                {index > 0 && <span aria-hidden="true"> · </span>}
+                <span class:list={['reading-route__world', `reading-route__world--${id}`]}>
+                  {worldName(id)}
+                </span>
+              </>
+            ))}
+          </p>
+          <p class="reading-route__reason">{step.reason}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

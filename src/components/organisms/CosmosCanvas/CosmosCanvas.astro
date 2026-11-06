@@ -1,0 +1,38 @@
+---
+import type { WorldId } from '@/data/worlds';
+import './CosmosCanvas.scss';
+
+interface Props {
+  worldIds: WorldId[];
+}
+
+const { worldIds } = Astro.props;
+---
+
+<canvas
+  class="cosmos-canvas"
+  aria-hidden="true"
+  data-cosmos
+  data-worlds={worldIds.join(',')}
+></canvas>
+
+<script>
+  import type { WorldId } from '@/data/worlds';
+
+  // three.js is the heaviest dependency on the page: load it after the copy
+  // is on screen, in its own chunk, so it never blocks the first paint.
+  async function mountCosmos(): Promise<void> {
+    const canvas = document.querySelector<HTMLCanvasElement>('[data-cosmos]');
+    if (!canvas) return;
+    const worldIds = (canvas.dataset.worlds ?? '').split(',').filter(Boolean) as WorldId[];
+    const { initCosmos } = await import('@/animations/cosmos/cosmos-scene');
+    initCosmos(worldIds, {
+      canvas,
+      sections: [...document.querySelectorAll<HTMLElement>('[data-cosmos-stop]')],
+      routeSteps: [...document.querySelectorAll<HTMLElement>('[data-route-worlds]')],
+      rail: document.querySelector<HTMLElement>('[data-journey-rail]'),
+    });
+  }
+
+  void mountCosmos();
+</script>

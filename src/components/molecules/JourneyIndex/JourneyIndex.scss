@@ -1,0 +1,61 @@
+@use 'mixins' as *;
+
+// Fixed index of the journey on wide screens: every world is one jump away.
+// Only on wide screens: narrower ones rely on the header links and the scroll,
+// and the planets need the room. Each world's link lights in its own colour.
+.journey-index {
+  display: none;
+
+  @include mq($bp-wide) {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: var(--s8);
+    z-index: 5;
+    display: grid;
+    align-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-out);
+
+    &.is-visible,
+    &:focus-within {
+      opacity: 1;
+    }
+
+    &.is-visible .journey-index__link {
+      pointer-events: auto;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: var(--s2);
+    padding: 0;
+    list-style: none;
+    text-align: end;
+  }
+
+  &__link {
+    @include f('sec-label', var(--fw-bold), true);
+    @include world-accent-modifiers;
+
+    display: inline-block;
+    padding-block: var(--s);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color var(--duration-fast) var(--ease-out);
+
+    @include hover {
+      color: var(--color-text);
+    }
+
+    &[aria-current] {
+      color: var(--world-accent, var(--color-star));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

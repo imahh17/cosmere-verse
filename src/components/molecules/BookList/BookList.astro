@@ -1,0 +1,22 @@
+---
+import type { Book } from '@/data/worlds';
+import './BookList.scss';
+
+interface Props {
+  books: Book[];
+  /** Accessible name of the list, e.g. "Libros de Nacidos de la bruma". */
+  label: string;
+}
+
+const { books, label } = Astro.props;
+---
+
+<ol class="book-list" aria-label={label}>
+  {books.map((book) => (
+    <li class="book-list__item">
+      <cite class="book-list__title">{book.title}</cite>
+      <span class="book-list__leader" aria-hidden="true" />
+      <span class="book-list__year">{book.year}</span>
+    </li>
+  ))}
+</ol>

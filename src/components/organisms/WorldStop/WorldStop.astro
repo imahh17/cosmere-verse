@@ -1,0 +1,45 @@
+---
+import BookList from '@/components/molecules/BookList/BookList.astro';
+import type { World } from '@/data/worlds';
+import './WorldStop.scss';
+
+interface Props {
+  world: World;
+  /** Puts the copy on the right, opposite a planet drawn on the left. */
+  flipped?: boolean;
+  labels: {
+    magic: string;
+    books: string;
+    startWith: string;
+  };
+}
+
+const { world, flipped = false, labels } = Astro.props;
+const titleId = `${world.id}-title`;
+---
+
+<section
+  class:list={['world-stop', `world-stop--${world.id}`, { 'world-stop--flipped': flipped }]}
+  id={world.id}
+  data-cosmos-stop
+  aria-labelledby={titleId}
+>
+  <div class="world-stop__inner wrapper">
+    <div class="world-stop__body">
+      <h2 class="world-stop__name" id={titleId}>
+        {world.name}
+      </h2>
+      <p class="world-stop__saga">{world.saga}</p>
+      <p class="world-stop__premise">{world.premise}</p>
+      {world.magic && (
+        <p class="world-stop__magic">
+          <strong class="world-stop__magic-label">{labels.magic}</strong> {world.magic}
+        </p>
+      )}
+      <BookList books={world.books} label={`${labels.books} ${world.saga}`} />
+      <p class="world-stop__start">
+        {labels.startWith} <cite class="world-stop__start-title">{world.startWith}</cite>
+      </p>
+    </div>
+  </div>
+</section>

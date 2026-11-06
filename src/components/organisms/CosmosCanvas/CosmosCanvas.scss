@@ -1,0 +1,24 @@
+@use 'mixins' as *;
+
+// Fixed WebGL backdrop for the whole journey. It fades in once the first
+// frame is drawn; without WebGL or JavaScript it stays empty over the space
+// background.
+.cosmos-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out);
+
+  &.is-ready {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

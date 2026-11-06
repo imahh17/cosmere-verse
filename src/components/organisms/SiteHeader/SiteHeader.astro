@@ -1,0 +1,35 @@
+---
+import './SiteHeader.scss';
+
+export interface HeaderLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  brand: string;
+  navLabel: string;
+  links: HeaderLink[];
+}
+
+const { brand, navLabel, links } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="site-header__inner wrapper">
+    <a class="site-header__brand" href="/">
+      {brand}
+    </a>
+    <nav aria-label={navLabel}>
+      <ul class="site-header__links">
+        {links.map((link) => (
+          <li>
+            <a class="site-header__link" href={link.href}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,6 @@
+// Web fonts — Cosmere Verse
+//
+// Both faces are self-hosted through Fontsource. Their @font-face CSS is
+// imported from src/layouts/BaseLayout.astro so Vite rewrites and fingerprints
+// the font file URLs (a Sass @use would break the relative `./files/` paths).
+// Families are referenced by --font-primary / --font-secondary.

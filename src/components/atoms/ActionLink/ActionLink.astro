@@ -1,0 +1,29 @@
+---
+import './ActionLink.scss';
+
+interface Props {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'quiet';
+  /** Draws a downward arrow: the link moves the visitor further down the page. */
+  descends?: boolean;
+}
+
+const { href, label, variant = 'primary', descends = false } = Astro.props;
+---
+
+<a class:list={['action-link', `action-link--${variant}`]} href={href}>
+  <span class="action-link__label">{label}</span>
+  {descends && (
+    <svg
+      class="action-link__icon"
+      viewBox="0 0 16 16"
+      width="16"
+      height="16"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M8 2v11M3.5 8.5 8 13l4.5-4.5" />
+    </svg>
+  )}
+</a>

@@ -1,0 +1,6 @@
+// Global stylesheet entry point: tokens, fonts, base styles and global helpers.
+// Import it once from the base layout. Component styles use `_mixins.scss`.
+@use 'variables';
+@use 'fonts';
+@use 'common';
+@use 'motion';

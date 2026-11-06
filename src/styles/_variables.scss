@@ -1,0 +1,136 @@
+// Design tokens — Cosmere Verse
+//
+// Visual world: deep space, rendered planets, one colour world per planet
+// (see .impeccable/surfaces/src-pages-index-astro.md). No Figma spec exists
+// yet: when `.claude/design/_variables.scss` arrives, port it with the
+// `dev-create-design-tokens` skill (wkhs-dev) and keep these token names, or
+// rename them in the same change.
+@use 'dawuti' as *;
+
+// dawuti spacing scale: --s, --s2…--s10, --gap, --gutter, --safe-area…
+@include space-vars;
+
+:root {
+  // Root size drives every rem-based token.
+  --html-font-size: 16px;
+
+  // Typography — both faces are self-hosted (src/styles/_fonts.scss).
+  --font-primary: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif;
+  --font-secondary: 'Big Shoulders Display Variable', 'Arial Narrow', sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  // Font scale, consumed by dawuti's `f()` mixin (--fs-*, --lh-*, --ls-*).
+  // `sec-*` sizes switch to the display face.
+  --fs-xs: 0.8125rem;
+  --lh-xs: 1.4;
+  --ls-xs: 0.02em;
+  --fs-base: 1.0625rem;
+  --lh-base: 1.6;
+  --ls-base: 0;
+  --fs-lg: 1.3125rem;
+  --lh-lg: 1.5;
+  --ls-lg: 0;
+  --fs-sec-label: 0.9375rem;
+  --lh-sec-label: 1.2;
+  --ls-sec-label: 0.14em;
+  --fs-sec-lg: clamp(1.75rem, 3.2vw, 2.5rem);
+  --lh-sec-lg: 1;
+  --ls-sec-lg: 0.01em;
+  --fs-sec-display: clamp(3.5rem, 9vw, 6rem);
+  --lh-sec-display: 0.9;
+  --ls-sec-display: -0.01em;
+
+  // Colour — space ground. Secondary text is tinted from the ground, never grey.
+  --color-space: #04060c;
+  --color-text: #eef2f8;
+  --color-text-muted: #a9b6cc;
+  --color-rule: rgb(169 182 204 / 0.3);
+  --color-star: #f3c46b;
+  --color-focus: #f3c46b;
+  --color-selection: rgb(243 196 107 / 0.35);
+
+  // Planet worlds: shader stops (deep → light, atmosphere, cloud layer) plus
+  // the accent that tints each world's section. Read by the WebGL scene too.
+  --planet-scadrial-deep: #120f0e;
+  --planet-scadrial-mid: #5c5550;
+  --planet-scadrial-light: #b3a89e;
+  --planet-scadrial-atmo: #e0573a;
+  --planet-scadrial-accent: #f0906a;
+  --planet-scadrial-cloud: #857d76;
+
+  --planet-sel-deep: #061520;
+  --planet-sel-mid: #1c4f66;
+  --planet-sel-light: #9fd6e8;
+  --planet-sel-atmo: #57d2f2;
+  --planet-sel-accent: #7fdcf2;
+  --planet-sel-cloud: #5d8ea0;
+
+  --planet-nalthis-deep: #2a0b3a;
+  --planet-nalthis-mid: #c2185b;
+  --planet-nalthis-light: #ffc94a;
+  --planet-nalthis-atmo: #ff6fa8;
+  --planet-nalthis-accent: #ff8fbb;
+  --planet-nalthis-cloud: #ffe08a;
+
+  --planet-roshar-deep: #0b1326;
+  --planet-roshar-mid: #45567f;
+  --planet-roshar-light: #e8ecf6;
+  --planet-roshar-atmo: #8fb0ff;
+  --planet-roshar-accent: #a8c0ff;
+  --planet-roshar-cloud: #eef3f8;
+
+  --planet-taldain-deep: #1f1306;
+  --planet-taldain-mid: #b97c33;
+  --planet-taldain-light: #f6dfa6;
+  --planet-taldain-atmo: #ffc76e;
+  --planet-taldain-accent: #f4c66f;
+  --planet-taldain-cloud: #f6dfa6;
+
+  --planet-lumar-deep: #03201a;
+  --planet-lumar-mid: #1d8558;
+  --planet-lumar-light: #b6f4c8;
+  --planet-lumar-atmo: #4fe096;
+  --planet-lumar-accent: #72e8ab;
+  --planet-lumar-cloud: #b6f4c8;
+
+  --planet-komashi-deep: #140b22;
+  --planet-komashi-mid: #573c9c;
+  --planet-komashi-light: #e4d1ff;
+  --planet-komashi-atmo: #a987ff;
+  --planet-komashi-accent: #c4a8ff;
+  --planet-komashi-cloud: #d9c6ff;
+
+  --planet-canticle-deep: #260500;
+  --planet-canticle-mid: #c93c0d;
+  --planet-canticle-light: #ffd27a;
+  --planet-canticle-atmo: #ff8436;
+  --planet-canticle-accent: #ff9f5c;
+  --planet-canticle-cloud: #ffd27a;
+
+  // Shape
+  --radius-pill: 999rem;
+  --rule-width: 0.0625rem;
+
+  // Layout
+  --wrapper-max: 90rem;
+  --section-gap: calc(var(--s10) * 2);
+  --measure: 34rem;
+
+  // Motion — read by CSS transitions and by GSAP / the WebGL scene
+  // (src/animations/motion.ts), so a value is never hard-coded twice.
+  --duration-fast: 200ms;
+  --duration-base: 450ms;
+  --duration-slow: 900ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --stagger-sm: 40ms;
+  --stagger-md: 90ms;
+  --reveal-distance: 2.5rem;
+  // Camera damping (per second): higher follows the scroll more tightly.
+  --camera-damping: 3.2;
+  // Planet spin in radians per second.
+  --planet-spin: 0.035;
+}

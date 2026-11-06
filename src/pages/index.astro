@@ -1,0 +1,61 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ActionLink from '@/components/atoms/ActionLink/ActionLink.astro';
+import JourneyIndex from '@/components/molecules/JourneyIndex/JourneyIndex.astro';
+import CosmosCanvas from '@/components/organisms/CosmosCanvas/CosmosCanvas.astro';
+import CosmosHero from '@/components/organisms/CosmosHero/CosmosHero.astro';
+import ReadingRoute from '@/components/organisms/ReadingRoute/ReadingRoute.astro';
+import SiteFooter from '@/components/organisms/SiteFooter/SiteFooter.astro';
+import SiteHeader from '@/components/organisms/SiteHeader/SiteHeader.astro';
+import WorldStop from '@/components/organisms/WorldStop/WorldStop.astro';
+import { readingRoute, worlds } from '@/data/worlds';
+
+const brand = 'Cosmere Verse';
+const firstWorld = worlds[0]?.id ?? 'ruta';
+const journeyLinks = [
+  ...worlds.map((world) => ({ id: world.id, label: world.name })),
+  { id: 'ruta', label: 'Ruta' },
+];
+---
+
+<BaseLayout
+  title="Cosmere Verse · Viaja por los mundos del Cosmere"
+  description="Una guía fan para entrar en el Cosmere de Brandon Sanderson: visita sus mundos, conoce sus sagas y elige tu primer libro."
+>
+  <CosmosCanvas worldIds={worlds.map((world) => world.id)} />
+  <SiteHeader
+    brand={brand}
+    navLabel="Principal"
+    links={[
+      { href: `#${firstWorld}`, label: 'Mundos' },
+      { href: '#ruta', label: 'Ruta de lectura' },
+    ]}
+  />
+  <JourneyIndex label="Mundos del viaje" links={journeyLinks} />
+  <main class="site-content">
+    <CosmosHero
+      titleLines={['Un universo.', 'Muchos mundos.']}
+      lead="Las novelas del Cosmere de Brandon Sanderson comparten un mismo cosmos, pero cada saga se lee por separado. Viaja de planeta en planeta y elige por dónde empezar."
+    >
+      <ActionLink href={`#${firstWorld}`} label="Empieza el viaje" descends />
+      <ActionLink href="#ruta" label="Ver la ruta de lectura" variant="quiet" />
+    </CosmosHero>
+    {worlds.map((world, index) => (
+      <WorldStop
+        world={world}
+        flipped={index % 2 === 1}
+        labels={{ magic: 'Magia:', books: 'Libros de', startWith: 'Empieza por' }}
+      />
+    ))}
+    <ReadingRoute
+      id="ruta"
+      title="Por dónde empezar"
+      lead="Cuatro paradas para entrar en el Cosmere sin perderte. Cada una funciona por sí sola: puedes quedarte en la que más te guste."
+      steps={readingRoute}
+    />
+  </main>
+  <SiteFooter
+    brand={brand}
+    disclaimer="Cosmere Verse es una web fan sin relación oficial con Brandon Sanderson, Dragonsteel Entertainment ni sus editoriales. Los títulos corresponden a las ediciones en castellano; los años, a la publicación original."
+  />
+</BaseLayout>

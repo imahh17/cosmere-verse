@@ -1,0 +1,91 @@
+@use 'mixins' as *;
+
+// One stop of the journey. The planet is drawn by the WebGL scene; this
+// section only carries the words, set beside it (desktop) or below it (mobile).
+.world-stop {
+  --world-accent: var(--color-star);
+
+  display: grid;
+  min-height: 100svh;
+
+  @include world-accent-modifiers;
+
+  &__inner {
+    display: grid;
+    align-items: end;
+    padding-block: 52svh var(--section-gap);
+  }
+
+  // A scrim keeps the copy legible where it scrolls over the planet.
+  &__body {
+    display: grid;
+    gap: var(--s4);
+    max-width: var(--measure);
+    padding-block: var(--s8) 0;
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in srgb, var(--color-space) 88%, transparent) var(--s8)
+    );
+  }
+
+  &__name {
+    @include f('sec-display', var(--fw-black), true);
+    color: var(--world-accent);
+    text-transform: uppercase;
+  }
+
+  &__saga {
+    @include f('sec-lg', var(--fw-bold), true);
+    margin-bottom: var(--s2);
+    text-transform: uppercase;
+  }
+
+  &__premise {
+    @include f('lg', var(--fw-regular), true);
+  }
+
+  &__magic {
+    margin-bottom: var(--s4);
+    color: var(--color-text-muted);
+  }
+
+  &__magic-label {
+    color: var(--color-text);
+    font-weight: var(--fw-bold);
+  }
+
+  &__start {
+    margin-top: var(--s4);
+    color: var(--color-text-muted);
+  }
+
+  &__start-title {
+    color: var(--world-accent);
+    font-style: normal;
+    font-weight: var(--fw-bold);
+  }
+
+  @include mq($bp-desktop) {
+    &__inner {
+      align-items: center;
+      padding-block: var(--section-gap);
+    }
+
+    &__body {
+      padding-block: 0;
+      background-image: none;
+    }
+
+    &--flipped &__body {
+      justify-self: end;
+    }
+  }
+
+  // Clears the fixed journey index on the right edge.
+  @include mq($bp-wide) {
+    &--flipped &__body {
+      margin-inline-end: calc(var(--s10) * 2);
+    }
+  }
+}
