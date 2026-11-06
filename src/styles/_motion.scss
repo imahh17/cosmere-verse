@@ -1,0 +1,23 @@
+// Global motion states.
+//
+// `js-motion` is added to <html> by an inline script in the base layout, only
+// when the visitor has not asked for reduced motion. Elements that GSAP will
+// animate in start hidden *only* under that class, so the content stays
+// visible if JavaScript is disabled or fails to load. GSAP reveals them with
+// `autoAlpha`, which also restores `visibility`.
+.js-motion {
+  [data-reveal],
+  [data-hero-intro] {
+    visibility: hidden;
+  }
+}
+
+// Belt and braces: never leave content hidden for reduced-motion visitors.
+@media (prefers-reduced-motion: reduce) {
+  .js-motion {
+    [data-reveal],
+    [data-hero-intro] {
+      visibility: visible;
+    }
+  }
+}

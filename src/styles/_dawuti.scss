@@ -1,0 +1,9 @@
+// Single configured entry point to dawuti for the whole project.
+//
+// dawuti's spacing unit ($s / $sem) must be set once, before any other module
+// loads it, so every stylesheet goes through this file (or `_mixins.scss`)
+// instead of `pkg:dawuti` directly. 4px base step (0.25rem).
+@forward 'pkg:dawuti' with (
+  $s: 0.25rem,
+  $sem: 0.25em
+);

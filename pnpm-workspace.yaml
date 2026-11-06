@@ -1,0 +1,17 @@
+# Single-package project: this file only holds pnpm settings (no workspaces).
+
+# Only packages with install scripts that really need them.
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
+
+# pnpm 11 holds back freshly published versions by default (supply-chain
+# guard). These exact versions were published less than a day before the
+# setup and were reviewed on install; remove the entries once they age out.
+minimumReleaseAgeExclude:
+  - '@astrojs/internal-helpers@0.13.1'
+  - '@astrojs/markdown-satteri@0.4.7'
+  - '@astrojs/react@7.1.4'
+  - astro@7.4.7
+  - sass@1.108.0

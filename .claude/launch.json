@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", ". \"$HOME/.nvm/nvm.sh\" && nvm use >/dev/null && pnpm dev"],
+      "port": 4321,
+      "autoPort": true
+    },
+    {
+      "name": "preview",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", ". \"$HOME/.nvm/nvm.sh\" && nvm use >/dev/null && pnpm preview"],
+      "port": 4321,
+      "autoPort": true
+    }
+  ]
+}

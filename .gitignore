@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.astro/
+*.tsbuildinfo
+
+# Environment variables — never commit secrets
+.env
+.env.local
+.env.*.local
+.env.production
+!.env.example
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test coverage / audits
+coverage/
+.lighthouseci/
