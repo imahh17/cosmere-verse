@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/utils/paths';
 import './SiteHeader.scss';
 
 export interface HeaderLink {
@@ -17,7 +18,7 @@ const { brand, navLabel, links } = Astro.props;
 
 <header class="site-header">
   <div class="site-header__inner wrapper">
-    <a class="site-header__brand" href="/">
+    <a class="site-header__brand" href={withBase()}>
       {brand}
     </a>
     <nav aria-label={navLabel}>

@@ -2,6 +2,7 @@
 import '@fontsource-variable/atkinson-hyperlegible-next/wght';
 import '@fontsource-variable/big-shoulders-display/wght';
 import '@/styles/theme.scss';
+import { withBase } from '@/utils/paths';
 
 interface Props {
   title: string;
@@ -19,8 +20,8 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#04060c" />
     {description && <meta name="description" content={description} />}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+    <link rel="icon" href={withBase('favicon.ico')} />
     <title>{title}</title>
     <!--
       Runs before first paint: flags that GSAP will animate content in, so the

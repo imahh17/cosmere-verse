@@ -15,17 +15,17 @@ Unofficial: no affiliation with Brandon Sanderson, Dragonsteel Entertainment or 
 
 ## Commands
 
-| Command             | What it does                                       |
-| ------------------- | -------------------------------------------------- |
-| `pnpm install`      | Install dependencies (also sets up the husky hook) |
-| `pnpm dev`          | Dev server at `http://localhost:4321`              |
-| `pnpm build`        | Static build into `dist/`                          |
-| `pnpm preview`      | Serve `dist/` locally                              |
-| `pnpm check`        | `astro check` (types in `.astro`, `.ts`, `.tsx`)   |
-| `pnpm lint`         | ESLint (typescript-eslint strict + astro)          |
-| `pnpm lint:fix`     | ESLint with autofix                                |
-| `pnpm format`       | Prettier write                                     |
-| `pnpm format:check` | Prettier check                                     |
+| Command             | What it does                                         |
+| ------------------- | ---------------------------------------------------- |
+| `pnpm install`      | Install dependencies (also sets up the husky hook)   |
+| `pnpm dev`          | Dev server at `http://localhost:4321/cosmere-verse/` |
+| `pnpm build`        | Static build into `dist/`                            |
+| `pnpm preview`      | Serve `dist/` locally                                |
+| `pnpm check`        | `astro check` (types in `.astro`, `.ts`, `.tsx`)     |
+| `pnpm lint`         | ESLint (typescript-eslint strict + astro)            |
+| `pnpm lint:fix`     | ESLint with autofix                                  |
+| `pnpm format`       | Prettier write                                       |
+| `pnpm format:check` | Prettier check                                       |
 
 On every commit, husky + lint-staged run ESLint and Prettier on the staged files.
 
@@ -105,7 +105,7 @@ The [Impeccable](https://github.com/pbakaus/impeccable) skill (v4.8.0) is vendor
 
   ```bash
   .claude/skills/impeccable/scripts/impeccable detect --json src/
-  .claude/skills/impeccable/scripts/impeccable detect --json http://localhost:4321
+  .claude/skills/impeccable/scripts/impeccable detect --json http://localhost:4321/cosmere-verse/
   ```
 
 - `.impeccable/mocks/`, `.impeccable/review/` and `.impeccable/questions/` are local working files and are git-ignored. ESLint and Prettier skip the vendored skill, `.impeccable/` and `DESIGN.md`.
@@ -119,13 +119,19 @@ The [Impeccable](https://github.com/pbakaus/impeccable) skill (v4.8.0) is vendor
 - The three.js chunk is over 500 kB minified (lazy-loaded). The Impeccable design hook (automatic checks on every UI edit) is not installed.
 - `DESIGN.md` lists small drifts left as they are: a few literal sizes instead of tokens, and px breakpoints.
 
+## Deployment (GitHub Pages)
+
+Live at **https://imahh17.github.io/cosmere-verse/**. `.github/workflows/deploy.yml` builds the site and publishes `dist/` on every push to `main` (or by hand from the Actions tab). In the repository, **Settings → Pages → Source** must be set to **GitHub Actions**.
+
+The site lives under `/cosmere-verse/` (`base` in `astro.config.mjs`). Anything that points to a file in `public/` or to the site root must go through `withBase()` from `@/utils/paths`; assets imported through Vite (CSS, fonts, scripts) get the prefix automatically, and `#anchor` links need nothing.
+
 ## Measuring quality
 
 Run Lighthouse against the production build, not the dev server:
 
 ```bash
 pnpm build && pnpm preview
-npx lighthouse http://localhost:4321 --preset=desktop --only-categories=performance,accessibility,best-practices,seo --view
+npx lighthouse http://localhost:4321/cosmere-verse/ --preset=desktop --only-categories=performance,accessibility,best-practices,seo --view
 ```
 
 Suggested baseline: ≥ 95 in every category on desktop and ≥ 90 on mobile (`--form-factor=mobile`), CLS ≈ 0 and LCP < 2.5 s. Also check the page with `prefers-reduced-motion: reduce` enabled (DevTools → Rendering): all content must be visible and the scene static. To see whether the home does its job, track how many visits reach the reading route (`#ruta`) and click one of its steps.

@@ -8,6 +8,9 @@ import { NodePackageImporter } from 'sass';
 export default defineConfig({
   // Every page is prerendered to plain HTML at build time — no adapter, no SSR.
   output: 'static',
+  // Published on GitHub Pages as a project site: https://imahh17.github.io/cosmere-verse/
+  site: 'https://imahh17.github.io',
+  base: '/cosmere-verse',
   integrations: [react()],
   vite: {
     css: {
