@@ -3,3 +3,8 @@
 pnpm-lock.yaml
 .claude/design/
 
+# Vendored Impeccable skill and its working files
+.claude/skills/
+.claude/agents/
+.impeccable/
+DESIGN.md

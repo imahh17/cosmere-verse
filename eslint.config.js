@@ -5,7 +5,15 @@ import prettier from 'eslint-config-prettier';
 
 export default defineConfig(
   {
-    ignores: ['**/node_modules/**', 'dist/**', '.astro/**', 'coverage/**'],
+    ignores: [
+      '**/node_modules/**',
+      'dist/**',
+      '.astro/**',
+      'coverage/**',
+      // Vendored Impeccable skill (third-party scripts) and its working files.
+      '.claude/skills/**',
+      '.impeccable/**',
+    ],
   },
   tseslint.configs.strict,
   astro.configs.recommended,

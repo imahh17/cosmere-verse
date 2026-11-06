@@ -30,3 +30,7 @@ pnpm-debug.log*
 # Test coverage / audits
 coverage/
 .lighthouseci/
+
+# Impeccable runtime: decision mocks and review captures stay local
+.impeccable/mocks/
+.impeccable/review/
